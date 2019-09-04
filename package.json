@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "dev-plebs",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Just some plebs trying not to piss off the internet",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Phil Tietjen <tietjen.philip@gmail.com>, Keith Brewster <I don't know your email keith>",
   "dependencies": {
     "gatsby": "^2.15.5",
     "gatsby-image": "^2.2.17",
@@ -35,9 +35,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/phizzard/dev-plebs"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/phizzard/dev-plebs/issues"
   }
 }
