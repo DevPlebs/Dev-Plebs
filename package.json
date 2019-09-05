@@ -3,7 +3,7 @@
   "private": true,
   "description": "Just some plebs trying not to piss off the internet",
   "version": "0.1.0",
-  "author": "Phil Tietjen <tietjen.philip@gmail.com>, Keith Brewster <I don't know your email keith>",
+  "author": "Phil Tietjen <tietjen.philip@gmail.com>, Keith Brewster <keith.brewster22@gmail.com>",
   "dependencies": {
     "@emotion/core": "^10.0.17",
     "@emotion/styled": "^10.0.17",
@@ -25,7 +25,21 @@
   },
   "devDependencies": {
     "prettier": "^1.18.2",
-    "tailwindcss": "^1.1.2"
+    "tailwindcss": "^1.1.2",
+    "@commitlint/cli": "8.1.0",
+    "@commitlint/config-conventional": "8.1.0",
+    "babel-jest": "24.9.0",
+    "babel-preset-gatsby": "0.2.12",
+    "cz-conventional-changelog": "3.0.2",
+    "husky": "3.0.5",
+    "identity-obj-proxy": "3.0.0",
+    "jest": "24.9.0",
+    "react-test-renderer": "16.9.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "keywords": [
     "gatsby"
@@ -37,7 +51,16 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+    "cz": "git-cz",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint --fix \"**/*.js\""
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "repository": {
     "type": "git",
