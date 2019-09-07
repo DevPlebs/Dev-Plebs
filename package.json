@@ -60,7 +60,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "lint": "eslint --fix \"**/*.js\"",
-    "pretty": "prettier --write --tab-width 4 \"src/**/*.js\"",
+    "pretty": "prettier --write --tab-width 2 \"src/**/*.js\"",
     "precommit": "lint-staged && npm test"
   },
   "husky": {
