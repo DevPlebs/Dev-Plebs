@@ -1,11 +1,11 @@
 import React from "react"
 import { create } from "react-test-renderer"
 
-import Header from "./Header"
+import Banner from "./Banner"
 
-describe("Header", () => {
+describe("Banner", () => {
   it("renders correctly", () => {
-    const tree = create(<Header />)
+    const tree = create(<Banner />)
     expect(tree.toJSON()).toMatchSnapshot()
   })
 })

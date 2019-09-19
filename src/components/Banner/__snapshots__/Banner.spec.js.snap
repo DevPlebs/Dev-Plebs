@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Banner renders correctly 1`] = `
+.emotion-3 {
+  background-repeat: no-repeat;
+  background-position: top;
+  position: relative;
+  width: 100vw;
+  height: 28em;
+  background-image: url(hills.svg);
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-left: 5rem;
+}
+
+.emotion-0 {
+  color: #fff;
+  font-weight: 700;
+  margin-left: 0.5rem;
+  font-size: calc(60px + (120 - 60) * ((100vw - 300px) / (1600 - 300)));
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.6);
+  font-family: "Rubik",sans-serif;
+}
+
+.emotion-1 {
+  color: #ffdbb5;
+  font-family: "Rubik",sans-serif;
+  font-weight: 400;
+  margin: -1rem 0 0 0.75rem;
+  text-shadow: 1px 1px 1px rgba(30,30,30,0.9);
+}
+
+<header
+  className="emotion-3"
+>
+  <div
+    className="emotion-2"
+  >
+    <h1
+      className="emotion-0"
+    >
+      devplebs.
+    </h1>
+    <h2
+      className="emotion-1"
+    >
+      Good Content For People Who Love Bad Content
+    </h2>
+  </div>
+</header>
+`;
