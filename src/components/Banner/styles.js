@@ -3,15 +3,15 @@ import styled from "@emotion/styled"
 import bg from "../../images/hills.svg"
 
 export const BannerWrapper = styled.header`
-  ${tw`bg-no-repeat bg-top relative w-screen`}
+  ${tw`bg-no-repeat bg-bottom bg-cover relative w-screen`}
   height: 28em;
   background-image: url(${bg});
 `
 
-export const Container = tw.div`flex justify-center h-full flex-col ml-20`
+export const Container = tw.div`flex justify-center h-full flex-col md:ml-20`
 
 export const Title = styled.h1`
-  ${tw`text-white font-bold ml-2`}
+  ${tw`text-white font-bold ml-2 text-left`}
   font-size: calc(60px + (120 - 60) * ((100vw - 300px) / (1600 - 300)));
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
   font-family: "Rubik", sans-serif;
