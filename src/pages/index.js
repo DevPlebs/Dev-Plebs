@@ -11,7 +11,7 @@ import Button from "../components/Button"
 import Header from "../components/Header"
 import Skew from "../components/Skew"
 import logo from "../images/pk.png"
-import { Card, BackgroundCard } from "../components/Card"
+import { BackgroundCard } from "../components/Card"
 
 const IndexPage = () => (
   <Layout>
@@ -41,7 +41,8 @@ const IndexPage = () => (
         <Button buttonText="SEE MORE" onClick={() => {}} />
       </SectionContent>
     </BioSection>
-    <YouTubeSection>
+    <LatestSection>
+      <Skew path="0,0 100,0 0,100" />
       <Header size="xl" align="center" fontWeight="light-bold" shadow>
         Latest & Greatest
       </Header>
@@ -67,55 +68,44 @@ const IndexPage = () => (
           backgroundImage={bg}
         />
       </LatestCards>
-    </YouTubeSection>
-    <YouTubeSection>
-      <Header size="xl" align="center" fontWeight="light-bold" shadow>
-        Testing some bullshit! :D
-      </Header>
-      <LatestCards>
-        <TestCard
-          title="How does this look?"
-          header="test"
-          text="Wow look at me, I'm a more normal TestCard for content"
-        />
-        <TestCard
-          title="How does this look?"
-          header="test"
-          text="Wow look at me, I'm a more normal card for content"
-        />
-        <TestCard
-          title="How does this look?"
-          header="test"
-          text="Wow look at me, I'm a more normal card for content"
-        />
-      </LatestCards>
-    </YouTubeSection>
+    </LatestSection>
   </Layout>
 )
 
 const BioSection = styled.div`
-  ${tw`flex justify-between flex-wrap`}
+  ${tw`flex justify-between flex-wrap `}
   min-height: 525px;
 `
 const SectionImage = styled.div`
-  ${tw`w-1/2`}
-  margin-top: -50px;
+  ${tw`w-full lg:w-1/2`}
+  margin-top: -10px;
+  @media screen and (min-width: 1024px) {
+    margin-top: -50px;
+  }
 `
-const SectionContent = tw.div`w-full text-center lg:w-1/2 lg:text-right p-12`
+const SectionContent = tw.div`w-full text-center lg:w-1/2 lg:text-right p-4 sm:p-8 md:p-12`
 const Bio = styled.p`
-  ${tw`pl-12`}
+  ${tw`pl-0 md:pl-12`}
   font-family: montserrat;
   font-size: 1.1rem;
 `
-const YouTubeSection = styled.div`
-  ${tw`p-12`}
+const LatestSection = styled.div`
+  ${tw`relative pb-4 sm:pb-8 md:pb-12 pt-16 sm:pt-18 md:pt-20`}
   background-color: #419d78;
   min-height: 525px;
+  svg {
+    top: 0;
+  }
 `
 const Image = styled.div`
-  position: absolute;
-  transform: scale(0.75);
-  z-index: -1;
+  ${tw`relative text-center lg:text-left lg:absolute`}
+  transform: scale(.96);
+  z-index: 1;
+
+  @media screen and (min-width: 1024px) {
+    transform: scale(0.7);
+    margin-left: -3.5rem;
+  }
 `
 
 const LatestCards = styled.div`
@@ -123,15 +113,6 @@ const LatestCards = styled.div`
 `
 
 const LatestCard = styled(BackgroundCard)`
-  ${tw`m-3`}
-  flex-basis: 100%;
-  flex-grow: 1;
-  @media (min-width: 820px) {
-    flex-basis: 23%;
-  }
-`
-
-const TestCard = styled(Card)`
   ${tw`m-3`}
   flex-basis: 100%;
   flex-grow: 1;
