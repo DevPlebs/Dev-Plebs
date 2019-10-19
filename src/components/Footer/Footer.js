@@ -1,12 +1,11 @@
 import React from "react"
-
-import { StyledFooter } from "./styles"
+import { StyledFooter, StyledHeader } from "./styles"
 
 const Footer = () => (
   <StyledFooter>
-    © {new Date().getFullYear()}, Built with
-    {` `}
-    <a href="https://www.gatsbyjs.org">Gatsby</a>
+    <StyledHeader size="lg" align="center" fontWeight="light-bold" shadow>
+      More Bad Content Coming Soon...
+    </StyledHeader>
   </StyledFooter>
 )
 
