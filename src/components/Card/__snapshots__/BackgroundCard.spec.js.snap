@@ -1,6 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BackgroundCard renders correctly 1`] = `
+.emotion-2 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+@media (min-width:768px) {
+  .emotion-2 {
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+  }
+}
+
+.emotion-2 .DefaultCard {
+  color: #fff;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+  background: linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)), url(hills.svg);
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: 70%;
+}
+
+.emotion-2 .DefaultCard:hover {
+  background: linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)),url(hills.svg);
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: 55%;
+}
+
 .emotion-1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -16,22 +61,6 @@ exports[`BackgroundCard renders correctly 1`] = `
   font-family: montserrat;
   -webkit-transition: 0.35s;
   transition: 0.35s;
-  color: #fff;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
-  background: linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)), url(hills.svg);
-  background-size: cover;
-  background-position-x: center;
-  background-position-y: 70%;
-}
-
-.emotion-1:hover {
-  background: linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)),url(hills.svg);
-  background-size: cover;
-  background-position-x: center;
-  background-position-y: 55%;
 }
 
 .emotion-0 {
@@ -50,19 +79,24 @@ exports[`BackgroundCard renders correctly 1`] = `
 }
 
 <div
-  className="emotion-1"
-  to=""
+  className="emotion-2"
 >
-  
   <div
-    className="emotion-0"
+    className="DefaultCard emotion-1"
+    to=""
   >
-    <h4>
-      
-    </h4>
-    <p>
-      
-    </p>
+    
+    <div
+      className="emotion-0"
+    >
+      <h4>
+        
+      </h4>
+      <p>
+        
+      </p>
+    </div>
   </div>
+  
 </div>
 `;
