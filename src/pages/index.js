@@ -61,7 +61,6 @@ const IndexPage = () => {
             and struggling to make ends meet.
           `}
           </Text>
-          <Button buttonText="SEE MORE" onClick={() => {}} />
         </SectionContent>
       </BioSection>
       <FeaturedSection>
