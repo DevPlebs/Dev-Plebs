@@ -10,7 +10,7 @@ exports[`Header renders correctly 1`] = `
 }
 
 <h1
-  className="emotion-0"
+  className=" emotion-0"
   color="white"
   fontWeight="regular"
   size="md"

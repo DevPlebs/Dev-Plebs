@@ -27,5 +27,14 @@ export const CardBody = styled.div`
     font-family: Rubik;
   }
 `
+export const CardContainer = styled.div`
+  ${tw`relative flex flex-row flex-wrap justify-center md:flex-no-wrap`}
+`
+
+export const CardDeck = styled.div`
+  ${tw`bg-gray-200 w-auto rounded-bl-lg md:rounded-tr-lg rounded-br-lg pl-6 py-4 self-center w-97 md:h-97 ml-0 md:-ml-4`}
+  left: 90%;
+  font-family: montserrat;
+`
 
 export default DefaultCard

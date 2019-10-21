@@ -1,24 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Footer renders correctly 1`] = `
-.emotion-0 {
+.emotion-1 {
   background-color: #2d3047;
   color: #fff;
   min-height: 150px;
-  margin-top: -26px;
+}
+
+.emotion-0 {
+  font-family: rubik;
+  color: white;
+  font-size: 2.4rem;
+  font-weight: 600;
+  text-align: center;
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+  padding-top: 1rem;
 }
 
 <footer
-  className="emotion-0"
+  className="emotion-1"
 >
-  © 
-  2019
-  , Built with
-   
-  <a
-    href="https://www.gatsbyjs.org"
+  <h1
+    className=" emotion-0"
+    color="white"
+    fontWeight="light-bold"
+    size="lg"
   >
-    Gatsby
-  </a>
+    More Bad Content Coming Soon...
+  </h1>
 </footer>
 `;

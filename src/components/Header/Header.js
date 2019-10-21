@@ -34,9 +34,11 @@ const Header = ({
   align,
   shadow,
   children,
+  className,
 }) => (
   <StyledHeader
     family={family}
+    className={className}
     color={color}
     fontWeight={fontWeight}
     size={size}
@@ -49,6 +51,7 @@ const Header = ({
 
 Header.propTypes = {
   children: PropTypes.string.isRequired,
+  className: PropTypes.string,
   family: PropTypes.string,
   color: PropTypes.string,
   fontWeight: PropTypes.string,
@@ -59,6 +62,7 @@ Header.propTypes = {
 
 Header.defaultProps = {
   children: "",
+  className: "",
   family: "primary",
   color: "white",
   fontWeight: "regular",
