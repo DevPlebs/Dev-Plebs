@@ -19,11 +19,11 @@ export const BackgroundCard = styled(Card)`
     ${props =>
       props.hover &&
       `:hover {
-    background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),url(${props.backgroundImage});
-    background-size: cover;
-    background-position-x: center;
-    background-position-y: 55%;
-  }`}
+        background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),url(${props.backgroundImage});
+        background-size: cover;
+        background-position-x: center;
+        background-position-y: 55%;
+      }`}
   }
 `
 
@@ -38,4 +38,5 @@ BackgroundCard.defaultProps = {
   hover: true,
   overlay: true,
 }
+
 export default BackgroundCard

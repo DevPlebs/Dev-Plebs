@@ -3,7 +3,7 @@ import tw from "tailwind.macro"
 
 // Core Card styles
 export const DefaultCard = styled.div`
-  ${tw`flex flex-wrap shadow bg-white rounded-lg`}
+  ${tw`flex flex-wrap shadow bg-white`}
   position: relative;
   font-family: montserrat;
   transition: 0.35s;
