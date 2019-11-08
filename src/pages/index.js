@@ -75,14 +75,14 @@ const IndexPage = () => {
           `}
         </TextWhite>
         <FeaturedPodcast>
-          <iframe
+          <FeaturedPodcastEmbed
             title="Episode 1 - JOBS [Five Easy Steps to Earn a Six Figure Salary]"
             height="400"
             width="400"
             scrolling="no"
             data-name="pb-iframe-player"
             src="https://www.podbean.com/media/player/atj67-c5ad49?from=yiiadmin&download=1&version=1&vjs=1&skin=1&auto=0&download=1&pbad=1"
-          ></iframe>
+          ></FeaturedPodcastEmbed>
         </FeaturedPodcast>
       </FeaturedSection>
     </Layout>
@@ -143,5 +143,6 @@ const DeckHeader = styled(Header)`
 `
 
 const FeaturedPodcast = tw.div`flex justify-center pt-8`
+const FeaturedPodcastEmbed = tw.iframe`border-none`
 
 export default IndexPage
