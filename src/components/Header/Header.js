@@ -5,7 +5,13 @@ import PropTypes from "prop-types"
 
 // TODO: This should all be part of a theme
 const typeMap = new Map([["primary", "rubik"], ["secondary", "montserrat"]])
-const fontMap = new Map([["md", "1.5rem"], ["lg", "2.4rem"], ["xl", "3rem"]])
+const fontMap = new Map([
+  ["md", "1.5rem"],
+  ["lg", "2.4rem"],
+  ["xl", "3rem"],
+  ["2xl", "4rem"],
+  ["3xl", "5rem"],
+])
 const styleMap = new Map([
   ["regular", "400"],
   ["light-bold", "600"],
