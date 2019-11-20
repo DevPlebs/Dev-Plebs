@@ -1,14 +1,27 @@
 import PropTypes from "prop-types"
 import React from "react"
 
-import { BannerWrapper, Container, Title, Subtitle } from "./styles"
+import {
+  BannerWrapper,
+  BannerContainer,
+  Title,
+  StyledLink,
+  Navigation,
+  NavigationItem,
+} from "./styles"
 
 const Banner = ({ children }) => (
   <BannerWrapper>
-    <Container>
-      <Title>devplebs.</Title>
-      <Subtitle>Good Content For People Who Love Bad Content</Subtitle>
-    </Container>
+    <BannerContainer>
+      <StyledLink to="/">
+        <Title>devplebs.</Title>
+      </StyledLink>
+      <Navigation>
+        <StyledLink to="/">
+          <NavigationItem>Friday Night Deploys</NavigationItem>
+        </StyledLink>
+      </Navigation>
+    </BannerContainer>
     {children}
   </BannerWrapper>
 )
