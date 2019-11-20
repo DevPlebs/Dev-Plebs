@@ -50,9 +50,9 @@ exports[`Banner renders correctly 1`] = `
   margin: -1rem 0 0 0.75rem;
   text-shadow: 1px 1px 1px rgba(30,30,30,0.9);
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1),0 1px 2px 0 rgba(0,0,0,1);
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   background-color: #d4431e;
   font-size: calc(24px + (48 - 24) * ((100vw - 300px) / (1600 - 300)));
 }
