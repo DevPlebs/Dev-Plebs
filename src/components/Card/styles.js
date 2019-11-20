@@ -27,6 +27,11 @@ export const CardBody = styled.div`
     font-family: Rubik;
   }
 `
+
+export const CardTitle = styled.h4`
+  ${tw`text-black`}
+`
+
 export const CardContainer = styled.div`
   ${tw`relative flex flex-row flex-wrap justify-center md:flex-no-wrap`}
 `
