@@ -6,6 +6,7 @@ module.exports = {
       },
       width: {
         "97": "97%",
+        "screen-95": "95vw",
       },
       minWidth: {
         "20": "20rem",
