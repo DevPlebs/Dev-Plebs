@@ -88,12 +88,8 @@ exports[`BackgroundCard renders correctly 1`] = `
     <div
       className="emotion-0"
     >
-      <h4>
-        
-      </h4>
-      <p>
-        
-      </p>
+      
+      
     </div>
   </div>
   

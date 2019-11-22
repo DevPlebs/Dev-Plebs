@@ -6,6 +6,7 @@ import {
   DefaultCard,
   CardBody,
   CardHeader,
+  CardTitle,
   CardDeck,
 } from "./styles"
 
@@ -15,8 +16,8 @@ const Card = ({ className, header, title, text, deck, as, to, children }) => {
       <DefaultCard className="DefaultCard" as={as} to={to}>
         {header && <CardHeader>{header}</CardHeader>}
         <CardBody>
-          <h4>{title}</h4>
-          <p>{text}</p>
+          {title && <CardTitle>{title}</CardTitle>}
+          {text && <p>{text}</p>}
           {children}
         </CardBody>
       </DefaultCard>
