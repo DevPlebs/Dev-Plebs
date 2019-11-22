@@ -7,6 +7,11 @@ const axios = require("axios")
 const format = require("date-fns/format")
 // const data = require("./mock_episodes") // some mock data
 
+const SECONDS_TO_HOURS = 3600
+const SECONDS_TO_MINUTES = 60
+const PREPEND_ZERO_THRESHHOLD = 10
+const BASE_URL = "https://api.podbean.com"
+
 // fixes issues with tailwind.macro and tailwindV1+
 // https://github.com/bradlc/babel-plugin-tailwind-components/issues/39
 exports.onCreateWebpackConfig = ({ actions }) => {
@@ -23,7 +28,6 @@ exports.sourceNodes = async ({
   createContentDigest,
 }) => {
   const { createNode } = actions
-
   const processEpisode = episode => {
     episode.slug = episode.permalink_url.replace(
       "https://devplebs.podbean.com/e/",
@@ -37,14 +41,15 @@ exports.sourceNodes = async ({
 
     // This definitely wasn't from a stack overflow post
     let sec = episode.duration
-    let hrs = Math.floor(sec / 3600)
-    let min = Math.floor((sec - hrs * 3600) / 60)
-    let seconds = sec - hrs * 3600 - min * 60
+    let hrs = Math.floor(sec / SECONDS_TO_HOURS)
+    let min = Math.floor((sec - hrs * SECONDS_TO_HOURS) / SECONDS_TO_MINUTES)
+    let seconds = sec - hrs * SECONDS_TO_HOURS - min * SECONDS_TO_MINUTES
     seconds = Math.round(seconds * 100) / 100
 
-    let length = hrs < 10 ? "0" + hrs : hrs
-    length += ":" + (min < 10 ? "0" + min : min)
-    length += ":" + (seconds < 10 ? "0" + seconds : seconds)
+    let length = hrs < PREPEND_ZERO_THRESHHOLD ? "0" + hrs : hrs
+    length += ":" + (min < PREPEND_ZERO_THRESHHOLD ? "0" + min : min)
+    length +=
+      ":" + (seconds < PREPEND_ZERO_THRESHHOLD ? "0" + seconds : seconds)
     episode.duration_formatted = length
 
     const nodeId = createNodeId(`fidaynightdeploy-episode-${episode.id}`)
@@ -79,7 +84,7 @@ exports.sourceNodes = async ({
     })
 
     const { data } = await axios.get(
-      `https://api.podbean.com/v1/episodes?access_token=${auth.data.access_token}`
+      `${BASE_URL}/v1/episodes?access_token=${auth.data.access_token}`
     )
     data.episodes.forEach(episode => {
       createNode(processEpisode(episode))
