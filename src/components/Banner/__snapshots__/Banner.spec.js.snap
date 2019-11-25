@@ -94,7 +94,7 @@ exports[`Banner renders correctly 1`] = `
     >
       <a
         className="emotion-1"
-        href="/"
+        href="/friday-night-deploys"
       >
         <li
           className="emotion-2"

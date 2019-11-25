@@ -17,7 +17,7 @@ const Banner = ({ children }) => (
         <Title>devplebs.</Title>
       </StyledLink>
       <Navigation>
-        <StyledLink to="/">
+        <StyledLink to="/friday-night-deploys">
           <NavigationItem>Friday Night Deploys</NavigationItem>
         </StyledLink>
       </Navigation>
