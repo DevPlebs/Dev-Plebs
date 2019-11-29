@@ -31,7 +31,7 @@ const Footer = () => (
         Friday Night Deploys podcast show. Send in an email or reach us on
         twitter by mentions or DMs to get our attention!
       </StyledText>
-      <StyledText>devplebs@gmail.com</StyledText>
+      <StyledText>deadbeats@devplebs.tech</StyledText>
       <IconLink href="https://twitter.com/DevPlebs">
         <FaTwitterSquare />
       </IconLink>
