@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly 1`] = `
+.emotion-0 {
+  font-family: rubik;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-align: left;
+}
+
+<h1
+  className=" emotion-0"
+  color="white"
+  fontWeight="regular"
+  size="md"
+>
+  
+</h1>
+`;

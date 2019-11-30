@@ -3,10 +3,17 @@
   "private": true,
   "description": "Just some plebs trying not to piss off the internet",
   "version": "0.1.0",
-  "author": "Phil Tietjen <tietjen.philip@gmail.com>, Keith Brewster <I don't know your email keith>",
+  "author": "Phil Tietjen <tietjen.philip@gmail.com>, Keith Brewster <keith.brewster22@gmail.com>",
   "dependencies": {
+    "@emotion/core": "^10.0.17",
+    "@emotion/styled": "^10.0.17",
+    "axios": "^0.19.0",
+    "date-fns": "^2.7.0",
+    "dotenv": "^8.2.0",
+    "emotion": "^10.0.17",
     "gatsby": "^2.15.5",
     "gatsby-image": "^2.2.17",
+    "gatsby-plugin-emotion": "^4.1.5",
     "gatsby-plugin-manifest": "^2.2.13",
     "gatsby-plugin-offline": "^2.2.10",
     "gatsby-plugin-react-helmet": "^3.1.6",
@@ -16,10 +23,31 @@
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "react-icons": "^3.8.0",
+    "tailwind.macro": "^1.0.0-alpha.10",
+    "typeface-montserrat": "0.0.75",
+    "typeface-rubik": "0.0.72"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "@commitlint/cli": "8.1.0",
+    "@commitlint/config-conventional": "8.1.0",
+    "babel-jest": "24.9.0",
+    "babel-preset-gatsby": "0.2.12",
+    "cz-conventional-changelog": "3.0.2",
+    "husky": "3.0.5",
+    "identity-obj-proxy": "3.0.0",
+    "jest": "24.9.0",
+    "jest-emotion": "10.0.17",
+    "lint-staged": "9.2.5",
+    "prettier": "^1.18.2",
+    "react-test-renderer": "16.9.0",
+    "tailwindcss": "^1.1.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "keywords": [
     "gatsby"
@@ -31,7 +59,24 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+    "cz": "git-cz",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint --fix \"**/*.js\"",
+    "pretty": "prettier --write --tab-width 2 \"src/**/*.js\"",
+    "precommit": "lint-staged && npm test"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run pretty",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",

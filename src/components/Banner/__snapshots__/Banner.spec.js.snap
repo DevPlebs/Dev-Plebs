@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Banner renders correctly 1`] = `
+.emotion-6 {
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  position: relative;
+  height: 28em;
+  background-image: url(hills.svg);
+}
+
+.emotion-5 {
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100%;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-1 {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-0 {
+  color: #fff;
+  font-weight: 700;
+  margin-left: 0.5rem;
+  text-align: center;
+  font-size: calc(60px + (120 - 60) * ((100vw - 300px) / (1600 - 300)));
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.8);
+  font-family: "Rubik",sans-serif;
+}
+
+.emotion-4 {
+  margin: 0;
+  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  width: 95vw;
+  max-width: 64rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  border-bottom: 4px solid white;
+  border-top: 4px solid white;
+}
+
+.emotion-2 {
+  color: #fff;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 1px 1px 1px rgba(30,30,30,0.9);
+  list-style: none;
+  font-family: "Rubik",sans-serif;
+}
+
+<header
+  className="emotion-6"
+>
+  <div
+    className="emotion-5"
+  >
+    <a
+      className="emotion-1"
+      href="/"
+    >
+      <h1
+        className="emotion-0"
+      >
+        devplebs.
+      </h1>
+    </a>
+    <ul
+      className="emotion-4"
+    >
+      <a
+        className="emotion-1"
+        href="/friday-night-deploys"
+      >
+        <li
+          className="emotion-2"
+        >
+          Friday Night Deploys
+        </li>
+      </a>
+    </ul>
+  </div>
+</header>
+`;

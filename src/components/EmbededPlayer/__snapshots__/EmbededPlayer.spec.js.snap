@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmbededPlayer renders correctly 1`] = `
+.emotion-0 {
+  border-style: none;
+}
+
+<iframe
+  className="emotion-0"
+  data-name="pb-iframe-player"
+  height="400"
+  scrolling="no"
+  src="undefined&?from=usersite&vjs=1&skin=1&fonts=Helvetica&auto=0&download=1"
+  width="400"
+/>
+`;
