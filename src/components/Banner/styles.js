@@ -6,7 +6,7 @@ import { Container } from "../Container"
 import bg from "../../images/hills.svg"
 
 export const BannerWrapper = styled.header`
-  ${tw`bg-no-repeat bg-bottom bg-cover relative w-screen`}
+  ${tw`bg-no-repeat bg-bottom bg-cover relative`}
   height: 28em;
   background-image: url(${bg});
 `

@@ -6,7 +6,6 @@ exports[`Banner renders correctly 1`] = `
   background-position: bottom;
   background-size: cover;
   position: relative;
-  width: 100vw;
   height: 28em;
   background-image: url(hills.svg);
 }
