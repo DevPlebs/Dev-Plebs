@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Section renders correctly 1`] = `
+.emotion-0 {
+  position: relative;
+  padding-bottom: 4rem;
+  padding-top: 4rem;
+  background-color: #fff;
+  min-height: 525px;
+}
+
+@media (min-width:768px) {
+  .emotion-0 {
+    padding-bottom: 5rem;
+    padding-top: 5rem;
+  }
+}
+
+.emotion-0 svg {
+  top: 0;
+}
+
+<div
+  className="emotion-0"
+/>
+`;
