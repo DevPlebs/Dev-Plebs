@@ -5,12 +5,12 @@ import { graphql, Link } from "gatsby"
 
 import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
-import Banner from "../components/Banner"
 import Header from "../components/Header"
 import Skew from "../components/Skew"
 import Button from "../components/Button"
 import { EmbededPlayer } from "../components/EmbededPlayer"
 import { Container } from "../components/Container"
+import Section from "../components/Section"
 
 import logo from "../images/dev_plebs_heads.png"
 
@@ -20,14 +20,13 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <Seo title="Home" />
-      <Banner />
-      <BioSection>
-        <SectionImage>
+      <Bio>
+        <BioImage>
           <ImageContainer>
             <img src={logo} alt="Phil and Keith as cartoons" />
           </ImageContainer>
-        </SectionImage>
-        <SectionContent>
+        </BioImage>
+        <BioContent>
           <Header size="lg" color="black" fontWeight="light-bold" align="right">
             Two Friends Making Content For Developers
           </Header>
@@ -40,9 +39,9 @@ const IndexPage = ({ data }) => {
               and struggling to make ends meet.
             `}
           </Text>
-        </SectionContent>
-      </BioSection>
-      <FeaturedSection>
+        </BioContent>
+      </Bio>
+      <Section bgColor="#419d78">
         <Skew path="0,0 100,0 0,100" />
         <CenterContainer>
           <FeaturedHeader
@@ -73,7 +72,7 @@ const IndexPage = ({ data }) => {
             <Button buttonText="See More Episodes" />
           </Link>
         </CenterContainer>
-      </FeaturedSection>
+      </Section>
     </Layout>
   )
 }
@@ -89,7 +88,7 @@ export const query = graphql`
   }
 `
 
-const BioSection = styled(Container)`
+const Bio = styled(Container)`
   ${tw`flex justify-between flex-wrap pt-10 py-12`}
 `
 
@@ -97,14 +96,14 @@ const CenterContainer = styled(Container)`
   ${tw`text-center`}
 `
 
-const SectionImage = styled.div`
+const BioImage = styled.div`
   ${tw`w-full lg:w-1/2`}
   margin: auto 0;
 `
 
 const ImageContainer = tw.div`relative text-center lg:relative`
 
-const SectionContent = tw.div`w-full text-center lg:w-1/2 lg:text-right p-4 sm:p-8 md:p-12`
+const BioContent = tw.div`w-full text-center lg:w-1/2 lg:text-right p-4 sm:p-8 md:p-12`
 
 const Text = styled.p`
   ${tw`pl-0 md:pl-12`}
@@ -116,15 +115,6 @@ const TextWhite = styled.p`
   ${tw`text-white text-center px-12 mb-0`}
   font-family: montserrat;
   font-size: 1.1rem;
-`
-
-const FeaturedSection = styled.div`
-  ${tw`relative pb-16 sm:pb-18 md:pb-20 pt-16 sm:pt-18 md:pt-20`}
-  background-color: #419d78;
-  min-height: 525px;
-  svg {
-    top: 0;
-  }
 `
 
 const FeaturedHeader = styled(Header)`
