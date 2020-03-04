@@ -37,16 +37,29 @@ exports[`Card renders correctly 1`] = `
   flex-wrap: wrap;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1),0 1px 2px 0 rgba(0,0,0,0.06);
   background-color: #fff;
+  border-radius: 0.5rem;
+  width: 100%;
   position: relative;
   font-family: montserrat;
   -webkit-transition: 0.35s;
   transition: 0.35s;
 }
 
+.emotion-1:hover {
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05);
+}
+
 .emotion-0 {
   padding: 1rem;
   width: 100%;
   font-size: 1.125rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .emotion-0 h1,
@@ -54,7 +67,6 @@ exports[`Card renders correctly 1`] = `
 .emotion-0 h3,
 .emotion-0 h4,
 .emotion-0 h5 {
-  font-size: 1.5rem;
   font-family: Rubik;
 }
 
@@ -62,7 +74,7 @@ exports[`Card renders correctly 1`] = `
   className=" emotion-2"
 >
   <div
-    className="DefaultCard emotion-1"
+    className="emotion-1"
     to=""
   >
     
@@ -73,6 +85,5 @@ exports[`Card renders correctly 1`] = `
       
     </div>
   </div>
-  
 </div>
 `;
