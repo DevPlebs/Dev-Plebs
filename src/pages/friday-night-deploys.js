@@ -6,9 +6,9 @@ import tw from "tailwind.macro"
 import { Container } from "../components/Container"
 import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
-import Banner from "../components/Banner"
 import Header from "../components/Header"
-import { Card, CardBody } from "../components/Card"
+import Section from "../components/Section"
+import { Card } from "../components/Card"
 
 const FridayNightDeploys = ({ data }) => {
   const { allFridayNightDeployEpisode } = data
@@ -16,8 +16,7 @@ const FridayNightDeploys = ({ data }) => {
   return (
     <Layout>
       <Seo title="Friday Night Deploys" />
-      <Banner />
-      <FeaturedSection>
+      <Section bgColor="#419d78">
         <Container>
           <FeaturedHeader
             size="2xl"
@@ -46,7 +45,7 @@ const FridayNightDeploys = ({ data }) => {
             })}
           </EpisodesList>
         </Container>
-      </FeaturedSection>
+      </Section>
     </Layout>
   )
 }
@@ -69,15 +68,6 @@ export const query = graphql`
   }
 `
 
-const FeaturedSection = styled.div`
-  ${tw`relative pb-16 sm:pb-18 md:pb-20 pt-12`}
-  background-color: #419d78;
-  min-height: 525px;
-  svg {
-    top: 0;
-  }
-`
-
 const FeaturedHeader = styled(Header)`
   ${tw`mt-6`}
 `
@@ -87,24 +77,8 @@ const EpisodesList = styled.div`
 `
 
 const EpisodeCard = styled(Card)`
-  ${tw`mb-6 shadow hover:shadow-lg hover:ml-2`}
+  ${tw`mb-6 hover:ml-2`}
   transition: .2s;
-  .DefaultCard {
-    ${tw`rounded-lg`}
-    width: 100%;
-    h4 {
-      ${tw`mb-0`}
-    }
-    span {
-      ${tw`pl-4 text-black`}
-    }
-    ${CardBody} {
-      ${tw`py-8`}
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-  }
 `
 
 const EpisodeLink = styled(Link)`
