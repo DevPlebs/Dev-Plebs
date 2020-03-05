@@ -1,0 +1,277 @@
+---
+title: Adding a blog to the devplebs part 2
+date: "2020-03-02"
+published: true
+---
+
+Welcome to part 2 of the heavily acclaimed series "Adding a blog to the devplebs site so keith can post hot content!"
+
+## Last Time
+
+- We Installed the gatsby-theme-blog plugin to our existing devplebs gatsby site.
+- We tried to create a mock post, but, we ran into a compile error for a missing Date value.
+- We went hunting through the source code and found some interesting things about how the gatsby-theme-blog is architechted along with the schema for blog posts.
+- We submitted a PR for both the gatsby-theme-blog and gatsby-theme-blog-core to display this schema in it's readme so hopefully no one else gets as lost as we did!
+- We saw that the installation and usage of our blog theme succeeded, as a whole blog section was added to the site. However, the look and feel didn't match up with the rest of the site!
+
+Will we use shadowing to solve our problem? will we install the gatsby-theme-blog-core plugin instead? Will we be able to finish implementing a blog onto our site? Find out Now!
+
+## What the Heck is Shadowing?
+To begin, let's go over what shadowing is when it comes to Gatsby.
+
+> Since themes are usually deployed as npm packages that other people use in their sites, you need a way to modify certain files, such as React components, without making changes to the source code of the theme. This is called _Shadowing_
+> Shadowing is a filesystem-based API that allows us to replace one file with another at build time. For Example, if you had a theme with a Header component you could replace that Header with your own by creating a new file and placing it in the cirrent location for Shadowing to find it.
+> _Gatsby docs https://www.gatsbyjs.org/docs/theme-api/#shadowing_
+
+Thankfully Gatsby has tons of documentation. According to the rest of the Shdaowing API we can either override components completely or extend off of them depending how their built; which is pretty cool, so lets start.
+
+## Shadowing the Layout.
+
+Since we're missing our Header and Footer that is contained in the Layout component wrapping the application, I'm guessing our blog theme has it's own layout that we'll need to find and use ours instead.
+
+### Step 1 - Finding the theme component
+
+We installed the theme already so I'm going to go through my `node_modules` directory to find the `gatsby-theme-blog` package.
+
+![File tree of gatsby-theme-blog]()
+inside the package the layout component lives under `/src/components/layout`.
+
+### Step 2 - Create a matching directory structure
+```bash
+cd src
+mkdir gatsby-theme-blog/components
+
+cd gatsby-theme-blog/components
+touch layout.js
+```
+![File tree of devplebs showing matching structure of theme component]()
+Now in our devplebs site we have `src/gatsby-theme-blog/components/layout.js`.
+
+The directory for the theme name is **important** so that gatsby knows at build time what file to use for that file referenced in the theme.
+
+Understanding that this happens on build time is also **important**, if you are already running the local server you will need to stop it and start it back up to take affect.
+
+### Step 3 - Override the Layout
+```js
+import { Layout } from "../../components/Layout"
+export default Layout
+```
+
+We already have a Layout component so we can just import our existing component in and export default it out.
+
+>Progress! I might go against my spoiler warning and continue with shadowing.
+
+### Step 4 - Override the Posts
+
+```shell
+cd gatsby-theme-blog/components
+touch posts.js
+```
+Same thing as before, we can create a `posts.js` file inside the `gatsby-theme-blog` directory to shadow the existing Posts component included in the theme.
+
+```diff
+import React, { Fragment } from "react"
+import { Link } from "gatsby"
+- import { Styled, css } from "theme-ui"
+
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+- import Footer from "../components/home-footer"
++ import { Card } from "../../components/Card"
++ import Header from "../../components/Header"
+
+const Posts = ({ location, posts, siteTitle, socialLinks }) => (
+ <Layout location={location} title={siteTitle}>
+-   <main>
++     <Header size="2xl" align="center" fontWeight="light-bold" shadow>
++         Blog Posts
++     </Header>
+      {posts.map(({ node }) => {
+        const title = node.title || node.slug
+        const keywords = node.keywords || []
+        return (
+          <Fragment key={node.slug}>
++           <SEO title="Blog" keywords={keywords} />
+-           <div>
+-             <Styled.h2
+-               css={css({
+-                 mb: 1,
+-               })}
+-             >
+-               <Styled.a
+-                 as={Link}
+-                 css={css({
+-                   textDecoration: `none`,
+-                 })}
+-                 to={node.slug}
+-               >
+-                 {title}
+-               </Styled.a>
+-             </Styled.h2>
+-             <small>{node.date}</small>
+-             <Styled.p>{node.excerpt}</Styled.p>
+-           </div>
++           <Link to={node.slug}>
++               <Card key={node.slug} title={title} header={node.date}>
++                 <p>{node.excerpt}</p>
++               </Card>
++           </Link>
+          </Fragment>
+        )
+      })}
+-   </main>
+-   <Footer socialLinks={socialLinks} />
+  </Layout>
+)
+
+export default Posts
+```
+There isn't a whole lot going on in the themes posts file and because I only want to mostly upadte the styles and use our own components I decided to use trusty ol' copy paste. I then took things I didn't need out and some of my own stuff I wanted to use.
+
+![Screenshot of new blog page with changes made with the shadowed posts file we created]()
+
+we'll also want to shadow the post component which will be the same process.
+
+### Step 5 - Override the Post
+
+```shell
+cd gatsby-theme-blog/components
+touch post.js
+```
+
+```diff
+import React from "react"
+- import { Styled, css } from "theme-ui"
+
+- import PostFooter from "../components/post-footer"
+- import Layout from "../components/layout"
++ import Layout from "./layout"
+import SEO from "../components/seo"
+import { MDXRenderer } from "gatsby-plugin-mdx"
++ import { Container } from "../../components/Container"
++ import { Card } from "../../components/Card"
++ import Header from "../../components/Header"
++ import Section from "../../components/Section"
+
+const Post = ({
+  data: {
+    post,
+    site: {
+      siteMetadata: { title },
+    },
+  },
+  location,
+  previous,
+  next,
+}) => (
+  <Layout location={location} title={title}>
+-   <SEO title={post.title} description={post.excerpt} />
+-   <main>
+-     <Styled.h1>{post.title}</Styled.h1>
+-     <Styled.p
+-       css={css({
+-         fontSize: 1,
+-         mt: -3,
+-         mb: 3,
+-       })}
+-     >
+-       {post.date}
+-     </Styled.p>
++    <Section bgColor="#419d78">
++     <Container>
++       <SEO title={post.title} description={post.excerpt} />
++       <PostCard>
++         <Header
++           color="black"
++           size="2xl"
++           align="center"
++           fontWeight="light-bold"
++         >
++           {post.title}
++         </Header>
+          <MDXRenderer>{post.body}</MDXRenderer>
++         <PostFooter {...{ previous, next }} />
++       </PostCard>
++     </Container>
++   </Section>
+-   </main>
+-   <PostFooter {...{ previous, next }} />
+  </Layout>
+)
+
+export default Post
+
+```
+
+![Screenshot of shadowed post page with non shadowed bio content]()
+
+
+### Step 6 - Investigate the "Written by" post section
+We're getting closer, however, the small "written by" section is placeholder so we'll have to dig into some of the source code for the blog theme to see what we need to do. We atleast know that it's something in the `<PostFooter />` component since thats under the rendered post content.
+
+![Sceenshots going through the gatsby/packages/gatsby-theme-blog github]
+
+Two things we need to do next.
+1. Add an image called `avatar` in our assets directory for `<Bio />`.
+2. Shadow `<BioContent />` with our own content (It's asking for it)
+
+### Step 7 - Add avatar image to assets directory 
+
+![Sceenshots of added image]()
+
+### Step 8 - Override the Bio-Content
+
+```shell
+cd gatsby-theme-blog/components
+
+touch bio-content.js
+```
+
+```diff
+import React, { Fragment } from "react"
+- import { Styled } from "theme-ui"
+
++import Header from "../../components/Header"
+-/**
+- * Shadow me to add your own bio content
+- */
+
+export default () => (
+  <Fragment>
+-    Words by <Styled.a href="http://example.com/">Jane Doe</Styled.a>.
+-    <br />
+-    Change me. This is all quite default.
++    <Header color="#232129">Written by Keith Brewster.</Header>
+  </Fragment>
+)
+
+```
+
+![screenshot of new post page with fully shadowed PostFooter]()
+
+## Wrap up
+
+After all that shadowing we did it! It may need a little bit of extra tweaking with styling but some of that is specific to how we've build and styled out site.
+
+Ideally, I would have liked to just have used the `gatsby-theme-blog-core` package because the `gatsby-themep-blog` comes with some extra stuff we didn't _need_ like `theme-ui`. For the sake of this post, our use case, and my laziness I decided to go with shadowing because I had a feeling shadowing was actually going to be less work to do with a low impact if any. This will naturally vary depending on the complexity or architecure of the theme and your existing gatsby site.
+
+I would heavily reccommend using the `gatsby-theme-blog-core` theme if you are creating your own blog theme!
+
+### Things I feel good about :)
+- We successfully integrated a gatsby blog theme into our site.
+- We only shadowed 4 components to do it.
+- Components were small enough that we didn't have to recreate much in our shadowing.
+
+### Things I didn't feel good about :(
+- We had no prior knowledge we needed an avatar image for the functionality in the `<Bio /> component.
+- I was a little bummed out the "Written by" was static in the `<BioContent />` component. It's a good actionable example of shadowing a component to have your own content there, however in my opinion, this should be something either included in the theme config or an author should be specified in each post to enable more than 1 author. That's also easier said than done.
+- Having to dig into source code of a theme to hunt down components to shadow can be tedious at times. (upcoming tooling for this is hinted in the docs)
+
+### Things to say
+I continue to like a lot of things with Gatsby and what they're doing. I think there are really cool things coming down the pipeline from the various teams and the whole Gatsby project is open source! They're a really cool team and community; making contributions is very smooth with their github setup.
+
+Thats it for this little mini series of installing the `gatsby-theme-blog` into our existing devplebs gatsby site so Keith can post some extra quality content.
+
+Hope you all enjoyed this, it took me longer than expected with lots of things happening between podcasting, doing talks at meetups, and looking into other forms of content!
+
+BYEEEEEEEE!
