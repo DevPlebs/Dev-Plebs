@@ -20,6 +20,9 @@ const Banner = ({ children }) => (
         <StyledLink to="/friday-night-deploys">
           <NavigationItem>Friday Night Deploys</NavigationItem>
         </StyledLink>
+        <StyledLink to="/blog">
+          <NavigationItem>Blog</NavigationItem>
+        </StyledLink>
       </Navigation>
     </BannerContainer>
     {children}
