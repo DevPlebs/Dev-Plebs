@@ -10,6 +10,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Footer from "../Footer"
+import Banner from "../Banner"
 import "./layout.css"
 
 const Layout = ({ children }) => {
@@ -25,6 +26,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <Banner />
       <main>{children}</main>
       <Footer />
     </>
