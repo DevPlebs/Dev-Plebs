@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Banner renders correctly 1`] = `
-.emotion-6 {
+.emotion-8 {
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: cover;
@@ -10,7 +10,7 @@ exports[`Banner renders correctly 1`] = `
   background-image: url(hills.svg);
 }
 
-.emotion-5 {
+.emotion-7 {
   max-width: 64rem;
   margin-left: auto;
   margin-right: auto;
@@ -47,7 +47,18 @@ exports[`Banner renders correctly 1`] = `
   font-family: "Rubik",sans-serif;
 }
 
-.emotion-4 {
+.emotion-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin: 0;
   margin-bottom: 1.5rem;
   margin-top: 0.5rem;
@@ -61,22 +72,47 @@ exports[`Banner renders correctly 1`] = `
   border-top: 4px solid white;
 }
 
+@media (min-width:640px) {
+  .emotion-6 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+}
+
 .emotion-2 {
   color: #fff;
   text-align: center;
   font-size: 1.25rem;
   font-weight: 700;
-  margin: 0;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  margin-left: 0;
+  margin-right: 0;
   text-shadow: 1px 1px 1px rgba(30,30,30,0.9);
   list-style: none;
   font-family: "Rubik",sans-serif;
 }
 
+@media (min-width:640px) {
+  .emotion-2 {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+@media (min-width:768px) {
+  .emotion-2 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
 <header
-  className="emotion-6"
+  className="emotion-8"
 >
   <div
-    className="emotion-5"
+    className="emotion-7"
   >
     <a
       className="emotion-1"
@@ -89,7 +125,7 @@ exports[`Banner renders correctly 1`] = `
       </h1>
     </a>
     <ul
-      className="emotion-4"
+      className="emotion-6"
     >
       <a
         className="emotion-1"
@@ -99,6 +135,16 @@ exports[`Banner renders correctly 1`] = `
           className="emotion-2"
         >
           Friday Night Deploys
+        </li>
+      </a>
+      <a
+        className="emotion-1"
+        href="/blog"
+      >
+        <li
+          className="emotion-2"
+        >
+          Blog
         </li>
       </a>
     </ul>

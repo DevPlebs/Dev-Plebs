@@ -4,7 +4,10 @@ import { css } from "@emotion/core"
 import PropTypes from "prop-types"
 
 // TODO: This should all be part of a theme
-const typeMap = new Map([["primary", "rubik"], ["secondary", "montserrat"]])
+const typeMap = new Map([
+  ["primary", "rubik"],
+  ["secondary", "montserrat"],
+])
 const fontMap = new Map([
   ["md", "1.5rem"],
   ["lg", "2.4rem"],

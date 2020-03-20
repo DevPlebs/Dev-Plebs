@@ -1,11 +1,11 @@
 import React from "react"
 import { create } from "react-test-renderer"
 
-import BackgroundCard from "./BackgroundCard"
+import Section from "./Section"
 
-describe("BackgroundCard", () => {
+describe("Section", () => {
   it("renders correctly", () => {
-    const tree = create(<BackgroundCard />)
+    const tree = create(<Section />)
     expect(tree.toJSON()).toMatchSnapshot()
   })
 })

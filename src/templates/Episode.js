@@ -6,10 +6,10 @@ import { Link } from "gatsby"
 import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
 import Button from "../components/Button"
-import Banner from "../components/Banner"
 import Header from "../components/Header"
 import { EmbededPlayer } from "../components/EmbededPlayer"
 import { Container } from "../components/Container"
+import Section from "../components/Section"
 
 const Episode = ({ pageContext }) => {
   const { title, content, player_url, next, previous } = pageContext
@@ -17,8 +17,7 @@ const Episode = ({ pageContext }) => {
   return (
     <Layout>
       <Seo title={title} />
-      <Banner />
-      <FeaturedSection>
+      <Section bgColor="#419d78">
         <Container>
           <FeaturedHeader
             size="lg"
@@ -53,7 +52,7 @@ const Episode = ({ pageContext }) => {
             )}
           </NextPrevButtons>
         </Container>
-      </FeaturedSection>
+      </Section>
     </Layout>
   )
 }
@@ -62,15 +61,6 @@ const TextWhite = styled.p`
   ${tw`text-white text-center px-12 mb-0`}
   font-family: montserrat;
   font-size: 1.1rem;
-`
-
-const FeaturedSection = styled.div`
-  ${tw`relative pb-16 sm:pb-18 md:pb-20 pt-16 sm:pt-18 md:pt-20`}
-  background-color: #419d78;
-  min-height: 525px;
-  svg {
-    top: 0;
-  }
 `
 
 const FeaturedHeader = styled(Header)`

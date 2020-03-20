@@ -3,7 +3,8 @@ import tw from "tailwind.macro"
 
 // Core Card styles
 export const DefaultCard = styled.div`
-  ${tw`flex flex-wrap shadow bg-white`}
+  ${tw`flex flex-wrap shadow bg-white rounded-lg shadow hover:shadow-lg`}
+  width: 100%;
   position: relative;
   font-family: montserrat;
   transition: 0.35s;
@@ -21,25 +22,16 @@ export const CardHeader = styled.h4`
 `
 
 export const CardBody = styled.div`
-  ${tw`p-4 w-full text-lg`}
+  ${tw`p-4 w-full text-lg flex flex-col`}
   h1, h2, h3, h4, h5 {
-    ${tw`text-2xl`}
     font-family: Rubik;
   }
-`
-
-export const CardTitle = styled.h4`
-  ${tw`text-black`}
 `
 
 export const CardContainer = styled.div`
   ${tw`relative flex flex-row flex-wrap justify-center md:flex-no-wrap`}
 `
-
-export const CardDeck = styled.div`
-  ${tw`bg-gray-200 w-auto rounded-bl-lg md:rounded-tr-lg rounded-br-lg pl-6 py-4 self-center w-97 md:h-97 ml-0 md:-ml-4`}
-  left: 90%;
-  font-family: montserrat;
+export const CardText = styled.p`
+  color: #000;
 `
-
 export default DefaultCard

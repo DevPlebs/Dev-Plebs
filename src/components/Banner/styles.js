@@ -27,13 +27,13 @@ export const StyledLink = styled(Link)`
 `
 
 export const Navigation = styled.ul`
-  ${tw`m-0 mb-6 mt-2 py-2 w-screen-95 max-w-5xl mx-6`}
+  ${tw`flex flex-col sm:flex-row justify-center m-0 mb-6 mt-2 py-2 w-screen-95 max-w-5xl mx-6`}
   border-bottom: 4px solid white;
   border-top: 4px solid white;
 `
 
 export const NavigationItem = styled.li`
-  ${tw`text-white text-center text-xl font-bold m-0`}
+  ${tw`text-white text-center text-xl font-bold my-1 mx-0 sm:mx-4 md:my-0`}
   text-shadow: 1px 1px 1px rgba(30, 30, 30, 0.9);
   list-style: none;
   font-family: "Rubik", sans-serif;

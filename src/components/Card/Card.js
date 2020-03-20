@@ -1,27 +1,30 @@
 import React from "react"
 import { node, string, oneOfType, object } from "prop-types"
 
+import Header from "../Header"
 import {
   CardContainer,
   DefaultCard,
   CardBody,
   CardHeader,
-  CardTitle,
-  CardDeck,
+  CardText,
 } from "./styles"
 
-const Card = ({ className, header, title, text, deck, as, to, children }) => {
+const Card = ({ className, header, title, text, as, to, children }) => {
   return (
     <CardContainer className={className}>
-      <DefaultCard className="DefaultCard" as={as} to={to}>
+      <DefaultCard as={as} to={to}>
         {header && <CardHeader>{header}</CardHeader>}
         <CardBody>
-          {title && <CardTitle>{title}</CardTitle>}
-          {text && <p>{text}</p>}
+          {title && (
+            <Header color="#000" fontWeight="light-bold">
+              {title}
+            </Header>
+          )}
+          {text && <CardText>{text}</CardText>}
           {children}
         </CardBody>
       </DefaultCard>
-      {deck && <CardDeck>{deck}</CardDeck>}
     </CardContainer>
   )
 }
@@ -31,7 +34,6 @@ Card.propTypes = {
   header: string,
   title: string,
   text: string,
-  deck: string,
   as: oneOfType([string, object]),
   to: string,
   children: node,
@@ -44,7 +46,6 @@ Card.defaultProps = {
   to: "",
   title: "",
   text: "",
-  deck: "",
 }
 
 export default Card
